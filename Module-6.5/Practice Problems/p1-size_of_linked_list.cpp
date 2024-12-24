@@ -24,6 +24,18 @@ void insert_at_tail(Node* &head,Node* &tail,int val)
     tail=newNode;
     
 }
+void size_of_linked_list(Node* head)
+{
+    Node* temp=head;
+    int count=0;
+    while(temp!=NULL)
+    {
+        temp=temp->next;
+        count++;
+    }
+    cout<<"Size of the linked list is: "<<count<<endl;
+    return;  // Add this line to return from the function.
+}
 int main()
 {
     Node* head=NULL;
@@ -37,8 +49,11 @@ int main()
             break;
         }
         insert_at_tail(head,tail,val);
-        count++;
+        // count++;
     }
-    cout<<"Size of the linked list is: "<<count<<endl;
+    // cout<<"Size of the linked list is: "<<count<<endl;
+    size_of_linked_list(head);  // Call the function here.
+
+    // input: 1 2 3 4 5 -1
     return 0;
 }

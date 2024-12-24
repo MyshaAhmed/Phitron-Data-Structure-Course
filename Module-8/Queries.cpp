@@ -50,6 +50,10 @@ void insert_at_tail(Node* &head,Node* &tail, int val)
 // deletion ==================================================>
 void delete_at_head(Node* &head)
 {
+    if(head==NULL)
+    {
+        return;
+    }
     Node* deleteNode=head;
     head=head->next;
     delete deleteNode;
@@ -57,11 +61,20 @@ void delete_at_head(Node* &head)
 
 void delete_at_any_position(Node* &head, int index)
 {
+    if(head==NULL || index<0)
+    {
+        return;
+    }
     Node* temp=head;
     for(int i=1;i<index;i++)
     {
+        if(temp->next==NULL)
+        {
+            return;
+        }
         temp=temp->next;
     }
+    
     Node* deleteNode=temp->next;
     temp->next=temp->next->next;
     delete deleteNode;
@@ -69,9 +82,17 @@ void delete_at_any_position(Node* &head, int index)
 
 void delete_at_tail(Node* &head,Node* &tail, int index)
 {
+    if(head==NULL || index<0)
+    {
+        return;
+    }
     Node* temp=head;
     for(int i=1;i<index;i++)
     {
+        if(temp->next==NULL)
+        {
+            return;
+        }
         temp=temp->next;
     }
     Node* deleteNode=temp->next;
@@ -80,21 +101,7 @@ void delete_at_tail(Node* &head,Node* &tail, int index)
     tail=temp;
 }
 
-void sort_linked_list(Node* head) // reference to head not needed as we will not change head
-{
-    for(Node* i=head; i->next!=NULL; i=i->next)
-    {
-        for(Node* j=i->next; j!=NULL; j=j->next)
-        {
-            if(i->val>j->val)
-            {
-                swap(i->val,j->val);
-            }
-        }
-    }
-}
-
-void size_of_linked_list(Node* head)
+int size_of_linked_list(Node* head)
 {
     Node* temp=head;
     int count=0;
@@ -103,8 +110,8 @@ void size_of_linked_list(Node* head)
         temp=temp->next;
         count++;
     }
-    cout<<"Size of the linked list is: "<<count<<endl;
-    return;  // Add this line to return from the function.
+    
+    return count;  
 }
 void print_linked_list(Node* head)
 {
@@ -120,21 +127,52 @@ int main()
 {
     Node* head=NULL;
     Node* tail=NULL;
-    int val;
-    while(1)
+    int q;
+    cin>>q;
+    while(q--)
     {
-        cin>>val;
-        if(val==-1)
+        int x,v;
+        cin>>x>>v;
+        
+        if(x==0)
         {
-            break;
+            insert_at_head(head,v);
+            if(tail==NULL)
+            {
+                tail=head;
+            }
         }
-        insert_at_tail(head,tail,val);
+        else if(x==1)
+        {
+            insert_at_tail(head,tail,v);
+        }
+        else if(x==2)
+        {
+            int size=size_of_linked_list(head);
+            if(v>=size)
+            {
+                print_linked_list(head);
+                continue; 
+            }
+            else if(v==0)
+            {
+                delete_at_head(head);
+                if(head==NULL)
+                {
+                    tail=NULL;
+                }
+            }
+            else if(v==size-1)
+            {
+                delete_at_tail(head,tail,v);  
+            }
+            else
+            {
+                delete_at_any_position(head,v);
+            }
+        }
+        print_linked_list(head);
+        
     }
-    print_linked_list(head);
-    sort_linked_list(head);
-
-    print_linked_list(head);
-    
-    // input:   3 1 6 2 5 -1
     return 0;
 }
