@@ -17,7 +17,10 @@
     "xtree": "cpp",
     "xutility": "cpp",
     "*.tcc": "cpp",
-    "iostream": "cpp"
+    "iostream": "cpp",
+    "ostream": "cpp",
+    "string_view": "cpp",
+    "utility": "cpp"
   },
   "C_Cpp_Runner.cCompilerPath": "gcc",
   "C_Cpp_Runner.cppCompilerPath": "g++",
