@@ -1,12 +1,21 @@
 #include <bits/stdc++.h>
 using namespace std;
-void fun(int *&p){
-p = NULL;
-}
+
 int main() {
-int val = 10;
-int *ptr = &val;
-fun(ptr);
-cout << ptr << endl;
+int n;
+cin>>n;
+
+    for (int i = 0; i <= n; i++)
+    {
+        for (int j = 0; j <= n; j++)
+        {
+            if(j*i>n)
+            {
+                break;
+            }
+            cout<<i<<" "<<j<<endl;
+        }
+        
+    }
 return 0;
 }
