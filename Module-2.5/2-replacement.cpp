@@ -20,9 +20,7 @@ int main()
             replace(v.begin(), v.end(),v[i],2);
         }
         else
-        {
-            replace(v.begin(), v.end(),v[i],0);
-        }
+            continue;
         // if(v[i]==0)
         // {
         //     cout<<v[i]<<" ";

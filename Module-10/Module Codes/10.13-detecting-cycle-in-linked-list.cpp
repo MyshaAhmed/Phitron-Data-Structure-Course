@@ -25,6 +25,7 @@ int main()
     c->next = d;
     d->next = a;  //-------> cycle in list d--->a
 
+    // slow-fast or hare-tortoise algorithm=====> complexity: O(N)
     Node* slow = head;
     Node* fast = head;
     bool flag=false;
