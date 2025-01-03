@@ -15,10 +15,11 @@ int main()
     {
         pre[i] = pre[i-1] + v[i];
     }
-    cout<<pre[n-1]<<endl;
+    cout<<pre[n-1]<<endl;  // O(1) complexity
 
     int sum=(n*(n+1))/2; // O(1) complexity
     cout<<sum<<endl;
+   
 
     return 0;
 }
