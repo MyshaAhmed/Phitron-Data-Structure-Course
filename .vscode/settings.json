@@ -22,7 +22,8 @@
     "string_view": "cpp",
     "utility": "cpp",
     "typeindex": "cpp",
-    "typeinfo": "cpp"
+    "typeinfo": "cpp",
+    "new": "cpp"
   },
   "C_Cpp_Runner.cCompilerPath": "gcc",
   "C_Cpp_Runner.cppCompilerPath": "g++",

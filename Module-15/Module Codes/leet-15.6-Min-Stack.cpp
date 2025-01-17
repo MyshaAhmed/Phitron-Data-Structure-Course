@@ -12,7 +12,7 @@ public:
         if(st_min.empty())
             st_min.push(val);
         else if(st_min.top()>=val)
-             st_min.push(val);
+            st_min.push(val);
     }
     
     void pop() {
